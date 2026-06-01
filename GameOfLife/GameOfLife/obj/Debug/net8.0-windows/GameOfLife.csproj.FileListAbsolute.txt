@@ -1,0 +1,2 @@
+C:\Users\nvolo\source\repos\GameOfLife\GameOfLife\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\nvolo\source\repos\GameOfLife\GameOfLife\obj\Debug\net8.0-windows\GameOfLife_MarkupCompile.cache
