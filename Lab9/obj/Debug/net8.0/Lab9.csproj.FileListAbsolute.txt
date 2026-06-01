@@ -1,0 +1,5 @@
+C:\Users\nvolo\Source\Repos\BIVT-25-Lab-10 (HW)\Classwork 20.04 + example Lab10\Lab9\obj\Debug\net8.0\Lab9.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nvolo\Source\Repos\BIVT-25-Lab-10 (HW)\Classwork 20.04 + example Lab10\Lab9\obj\Debug\net8.0\Lab9.AssemblyInfoInputs.cache
+C:\Users\nvolo\Source\Repos\BIVT-25-Lab-10 (HW)\Classwork 20.04 + example Lab10\Lab9\obj\Debug\net8.0\Lab9.AssemblyInfo.cs
+C:\Users\nvolo\Source\Repos\BIVT-25-Lab-10 (HW)\Classwork 20.04 + example Lab10\Lab9\obj\Debug\net8.0\Lab9.csproj.CoreCompileInputs.cache
+C:\Users\nvolo\Source\Repos\BIVT-25-Lab-10 (HW)\Classwork 20.04 + example Lab10\Lab9\obj\Debug\net8.0\Lab9.sourcelink.json
