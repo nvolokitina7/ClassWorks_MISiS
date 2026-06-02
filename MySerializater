@@ -8,7 +8,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Serialization
 {
-    internal class MySerializater
+    public class MySerializater
     {
         string _desktopPath;
         protected string _path;
@@ -16,7 +16,9 @@ namespace Serialization
         public MySerializater()
         {
             // Получаем путь к рабочему столу текущего пользователя
-           
+            _desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            //_path = Path.Combine(_desktopPath, "example.json");
+
             // Создаем путь к новому файлу на рабочем столе
 
             _students = new List<Student>(3)
@@ -36,20 +38,16 @@ namespace Serialization
         {
             _path = Path.Combine(_desktopPath, "example1.json");
             var jsonString = System.Text.Json.JsonSerializer.Serialize(_students);
-
             Console.WriteLine(jsonString);
             File.WriteAllText(_path, jsonString);
 
             _path = Path.Combine(_desktopPath, "example2.json");
             var jsonObject = JObject.FromObject(_students[0]); // добавляем в json одного студента 
             jsonObject.Add("Type", _students[0].GetType().Name); // добавляем в json ещё одно поле, в котором будет указано имя типа данных, который мы сериализуем
-
             jsonString = jsonObject.ToString();
             Console.WriteLine(jsonString);
             File.WriteAllText(_path, jsonString);
-
             _students = null;
-
             var deJsonObject = JObject.Parse(jsonString);
             Student obj = null; // объект базового класса
 
@@ -64,7 +62,6 @@ namespace Serialization
                         break;
                     }
             }
-
             _students = null;
         }
         public void Deserialize()
@@ -73,7 +70,7 @@ namespace Serialization
             Console.WriteLine();
             var jsonString = File.ReadAllText(_path);
             Console.WriteLine(jsonString);
-
+            //var obj = JsonSerializer.Deserialize<Student[]>(jsonString);
             Student[] students = System.Text.Json.JsonSerializer.Deserialize<Student[]>(jsonString);
 
             foreach (var student in students)
