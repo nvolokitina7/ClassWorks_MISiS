@@ -1,0 +1,75 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Serialization;
+using static ConsoleApp15.Program;
+
+namespace ConsoleApp15
+{
+    internal class myxmlSerializaiter : MySerializer
+    {
+        string _desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        string _path = Path.Combine(_desktopPath, "example2.xml");
+        public new void Serialize()
+        {
+            var ser = new XmlSerializer(typeof(DTOStudent[]));
+            _path = Path.Combine(_desktopPath, "example.xml");
+            using (var fs = new StreamWriter(_path))
+            { 
+                var dtoObjects =new List<DTOStudent>[_students.Count];
+                foreach (var student in _students)
+                {dtoObjects.Add _students }
+                ser.Serialize(fs, _students); 
+            }
+        }
+        public new void Deseriaize()
+        { 
+            
+        }
+        public class DTOStudent
+        {
+            public int ID { get; private set; }
+            public string Name { get; private set; }
+            public string Surname { get; private set; }
+            public Subject[] Subjects { get; private set; }
+            public DTOSubject[] Subjects { get; private set; }
+            public DTOStudent()
+            {
+
+            }
+            public DTOStudent(Student student)
+            {
+                ID = student.ID;
+                Name = student.Name;
+                Surname = student.Surname;
+                Subjects = student.Subjects;
+            }
+            public Student FormStudent()
+            { 
+            return new Student(ID, Name, Surname, Subjects)
+            }
+        }
+        public class DTOSubject()
+        {
+            private List<int> _marks;
+            public string Name { get; private set; }
+            public int[] Marks => _marks.ToArray();
+            public DTOSubject()
+            {
+
+            }
+            public DTOSubject(Subject subject)
+            {
+                Name = subject.Name;
+                Marks = subject.Marks;
+            }
+            //[XmlElement(ElementName ="Subject")]            // атрибут, меняет свойтво в xml.
+            //                                                // Перед чем меняем перед тем и пишем.
+            //public string Name { get; private set; }  
+            //public int[] Marks { get; private set; }
+             
+        }
+    }
+}
